@@ -22,7 +22,7 @@ figure in the paper.
   (e.g. `co2conv`). Used only to write the decks and make the figures
   (`numpy`, `scipy`, `matplotlib`, `h5py`, `pandas`) — not for solving.
 - **Thermodynamic database — `hanford.dat`.** Every deck reads
-  `DATABASE hanford.dat`. Use the copy shipped with PFLOTRAN
+  `DATABASE hanford.dat`. Use the copy distributed with PFLOTRAN
   (`.../pflotran/database/hanford.dat`) if unmodified, or the copy archived with
   the data if it was customised. You point `HANFORD_DB` at it in Step 2.
 
@@ -76,7 +76,7 @@ ARRAY_THROTTLE=8  ./run_all_setonix.sh   # cap concurrent tasks per study
 
 Monitor with `squeue -u $USER`. **Re-running is safe**: a task that already
 finished (its log contains `Wall Clock Time`) is skipped, so if some jobs time
-out just resubmit and only the unfinished runs execute. Each task runs one deck
+out, resubmit; only the unfinished runs execute. Each task runs one deck
 in `<set>/runs/<label>/`, symlinks the database, and executes
 `srun -N 1 -n <ranks> $PFLOTRAN_EXE -input_prefix run`.
 

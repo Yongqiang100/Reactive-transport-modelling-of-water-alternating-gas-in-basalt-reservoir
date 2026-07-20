@@ -23,7 +23,7 @@ run as a compiled MPI binary on Setonix (Pawsey). It is open source
 Only the compiled binary is needed to run the simulations; no Python is
 involved at solve time.
 
-**A thermodynamic database** — every deck reads `hanford.dat` via a bare
+**A thermodynamic database** — every deck reads `hanford.dat` via a plain
 `DATABASE hanford.dat` line. Each run directory gets a symlink to a single copy,
 pointed to by `HANFORD_DB` (see `setonix_env.sh`).
 
@@ -46,7 +46,7 @@ more ranks and a longer walltime by default.
 
 ## 2. Route A — full re-run
 
-### Step 0 — stage and configure
+### Step 0 — prepare and configure
 
 Put the repository on scratch and check the paths in **`setonix_env.sh`**. This
 file only *defines* variables (no module loads, no conda activation), so it is
@@ -97,7 +97,7 @@ squeue -u $USER
 
 Re-running the driver is safe: each task **skips a deck that already completed**
 (it looks for `Wall Clock Time` in the run log), so if some jobs time out you can
-simply resubmit and only the unfinished runs execute.
+resubmit, and only the unfinished runs execute.
 
 ### Step 4 — generate all figures
 
