@@ -1,0 +1,39 @@
+==========================================================================
+  TRANSPORT-LIMITATION EVIDENCE  (studies 03/04/05/07)
+  root: /scratch/pawsey1284/ychen6/WAG
+==========================================================================
+
+========================================================================================
+  CORRECTED MINERALIZATION TABLE - three framings (mineral VF = mineralized carbon)
+  carbonate carbon from the mineral volume-fraction field; NEVER added to Global HCO3-
+  (that column already includes it). Injected C = actual well flux (Air + HCO3-).
+========================================================================================
+
+  no-injection background (control da_q0_k1) = 4.159 t CO2 mineralized
+  (identical baseline for every scenario; subtracted to isolate injection-driven)
+
+  scenario       | injected(t)   | mineralized (t CO2)        | efficiency (inj-driven)
+                 |   total   diss|    total  inj-drv  backgnd|   %injected     %diss
+  ------------------------------------------------------------------------------------
+  Dissolved (S1) |    20.8   20.8|   24.965   20.806    4.159|      99.94%     99.9%
+  scCO2 (S2)     |   499.8    0.0|    4.349    0.190    4.159|       0.04%       n/a
+  WAG-6mo (S3)   |   269.2   10.4|   14.592   10.433    4.159|       3.88%    100.2%
+  WAG-3mo (S4)   |   270.6   10.4|   14.591   10.432    4.159|       3.85%    100.2%
+  SWAG (S5)      |   274.1   10.4|   14.590   10.431    4.159|       3.81%    100.2%
+  Adaptive (S6)  |   318.6    8.2|   12.443    8.284    4.159|       2.60%    100.9%
+  ------------------------------------------------------------------------------------
+
+  THREE FRAMINGS, choose per the manuscript's claim:
+  (1) ABSOLUTE  - t CO2 locked in carbonate: 'total' (incl. background) & 'inj-driven'.
+  (2) %injected - inj-driven mineralized / TOTAL CO2 delivered (dissolved+gas):
+      capture efficiency of the whole injectate; gas cases low (CO2 stays mobile).
+  (3) %diss     - inj-driven mineralized / DISSOLVED carbon delivered (HCO3- only):
+      how efficiently dissolved carbon converts; ~100% => low %injected in gas/WAG
+      is a supply/phase limit, not poor conversion. n/a where no dissolved delivered.
+
+==========================================================================
+  SUMMARY — convergent evidence for transport limitation
+==========================================================================
+   03 Da-Pe     : see per-suite max/min above (flat over kappa AND over D/D0)
+   04 mechanisms: carbonation tracks CO2 phase split (Case C); buoyancy (Case D) above
+==========================================================================

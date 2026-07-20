@@ -1,0 +1,317 @@
+==========================================================================
+  TRANSPORT-LIMITATION EVIDENCE  (studies 03/04/05/07)
+  root: /scratch/pawsey1284/ychen6/WAG
+==========================================================================
+
+==========================================================================
+  SEED / INITIAL-CONDITION CHECK — no-injection control (da_q0_k1)
+  Tests whether the carbonate 'signal' is seeded-mineral re-equilibration
+==========================================================================
+
+  mineral           VF_init   VF_final  Δvolume(m³)
+  Forsterite      5.000e-02  4.998e-02       -3.814
+  Anorthite       3.000e-01  3.000e-01       -9.216
+  Diopside        2.500e-01  2.500e-01        5.959
+  Calcite         0.000e+00  0.000e+00        0.000
+  Magnesite       0.000e+00  0.000e+00        0.000
+  Siderite        0.000e+00  4.919e-08        0.010
+  Dolomite-ord    0.000e+00  1.515e-05        3.030
+
+  HDF5 net carbonate carbon (no injection) = +9.4490e+04 mol  (+4.16 t CO2)
+  mas injected through well                = -0.000 t CO2  (should be ~0)
+  mas aqueous DIC change (Global HCO3-)    = +0.00 t CO2
+
+  VERDICT: with ZERO injection, if HDF5 'net carbonate carbon' is large (tens of t)
+  and matches the scenarios' calcite−20 / dolomite+44 pattern, the carbonate change
+  is seeded-IC re-equilibration (calcite/magnesite -> dolomite), NOT CO2 uptake.
+  The seeded 1e-4 VF of four carbonates is not in equilibrium with the brine/silicates.
+
+==========================================================================
+  SUMMARY — convergent evidence for transport limitation
+==========================================================================
+   03 Da-Pe     : see per-suite max/min above (flat over kappa AND over D/D0)
+   04 mechanisms: carbonation tracks CO2 phase split (Case C); buoyancy (Case D) above
+==========================================================================
+==========================================================================
+  TRANSPORT-LIMITATION EVIDENCE  (studies 03/04/05/07)
+  root: /scratch/pawsey1284/ychen6/WAG
+==========================================================================
+
+==========================================================================
+  CARBON CONSISTENCY CHECK — HDF5 carbonate vs mas carbon & cation balances
+==========================================================================
+
+  Dissolved (S1)
+    HDF5 dCalcite      = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dMagnesite    = +1.3088e+01 m^3  = +4.6712e+05 mol cation
+    HDF5 dSiderite     = +1.0353e-02 m^3  = +3.5241e+02 mol cation
+    HDF5 dDolomite-ord = +3.2112e+00 m^3  = +4.9890e+04 mol cation
+    HDF5 net carbonate carbon            = +5.6725e+05 mol  (+24.96 t CO2)
+    mas injected=20.82t  dHCO3aq=+20.64t  dAir_gas=+0.00t  dAir_liq=-0.00t  outlet_left=+0.02t
+    mas carbon-balance mineral           = +3.7956e+03 mol  (+0.17 t CO2)
+    mas d(aqueous cations): Ca=-1.600e+03  Mg=-2.445e+04  Fe=-1.844e+02 mol
+    >> HDF5 / mas-balance ratio = 149.4x  (should be ~1 if consistent)
+
+  scCO2 (S2)
+    HDF5 dCalcite      = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dMagnesite    = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dSiderite     = +1.2262e-02 m^3  = +4.1738e+02 mol cation
+    HDF5 dDolomite-ord = +3.1665e+00 m^3  = +4.9196e+04 mol cation
+    HDF5 net carbonate carbon            = +9.8809e+04 mol  (+4.35 t CO2)
+    mas injected=499.80t  dHCO3aq=+0.19t  dAir_gas=+100.59t  dAir_liq=+4.32t  outlet_left=+390.43t
+    mas carbon-balance mineral           = +9.6859e+04 mol  (+4.26 t CO2)
+    mas d(aqueous cations): Ca=+2.610e+03  Mg=-4.300e+03  Fe=+3.099e+01 mol
+    >> HDF5 / mas-balance ratio = 1.0x  (should be ~1 if consistent)
+
+  WAG-6mo (S3)
+    HDF5 dCalcite      = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dMagnesite    = +6.5099e+00 m^3  = +2.3235e+05 mol cation
+    HDF5 dSiderite     = +1.0610e-02 m^3  = +3.6117e+02 mol cation
+    HDF5 dDolomite-ord = +3.1813e+00 m^3  = +4.9426e+04 mol cation
+    HDF5 net carbonate carbon            = +3.3156e+05 mol  (+14.59 t CO2)
+    mas injected=269.22t  dHCO3aq=+10.26t  dAir_gas=+37.26t  dAir_liq=+8.62t  outlet_left=+212.92t
+    mas carbon-balance mineral           = +3.8268e+03 mol  (+0.17 t CO2)
+    mas d(aqueous cations): Ca=-4.000e+02  Mg=-1.336e+04  Fe=-8.885e+01 mol
+    >> HDF5 / mas-balance ratio = 86.6x  (should be ~1 if consistent)
+
+  WAG-3mo (S4)
+    HDF5 dCalcite      = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dMagnesite    = +6.5115e+00 m^3  = +2.3240e+05 mol cation
+    HDF5 dSiderite     = +1.0599e-02 m^3  = +3.6079e+02 mol cation
+    HDF5 dDolomite-ord = +3.1788e+00 m^3  = +4.9387e+04 mol cation
+    HDF5 net carbonate carbon            = +3.3154e+05 mol  (+14.59 t CO2)
+    mas injected=270.65t  dHCO3aq=+10.26t  dAir_gas=+36.22t  dAir_liq=+8.68t  outlet_left=+215.32t
+    mas carbon-balance mineral           = +3.8480e+03 mol  (+0.17 t CO2)
+    mas d(aqueous cations): Ca=-4.100e+02  Mg=-1.334e+04  Fe=-8.890e+01 mol
+    >> HDF5 / mas-balance ratio = 86.2x  (should be ~1 if consistent)
+
+  SWAG (S5)
+    HDF5 dCalcite      = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dMagnesite    = +6.5143e+00 m^3  = +2.3250e+05 mol cation
+    HDF5 dSiderite     = +1.0587e-02 m^3  = +3.6037e+02 mol cation
+    HDF5 dDolomite-ord = +3.1748e+00 m^3  = +4.9325e+04 mol cation
+    HDF5 net carbonate carbon            = +3.3151e+05 mol  (+14.59 t CO2)
+    mas injected=274.05t  dHCO3aq=+10.35t  dAir_gas=+34.11t  dAir_liq=+8.26t  outlet_left=+219.06t
+    mas carbon-balance mineral           = +5.1897e+04 mol  (+2.28 t CO2)
+    mas d(aqueous cations): Ca=-4.100e+02  Mg=-1.338e+04  Fe=-8.926e+01 mol
+    >> HDF5 / mas-balance ratio = 6.4x  (should be ~1 if consistent)
+
+  Adaptive (S6)
+    HDF5 dCalcite      = +0.0000e+00 m^3  = +0.0000e+00 mol cation
+    HDF5 dMagnesite    = +5.1217e+00 m^3  = +1.8280e+05 mol cation
+    HDF5 dSiderite     = +1.1233e-02 m^3  = +3.8236e+02 mol cation
+    HDF5 dDolomite-ord = +3.2036e+00 m^3  = +4.9773e+04 mol cation
+    HDF5 net carbonate carbon            = +2.8273e+05 mol  (+12.44 t CO2)
+    mas injected=318.61t  dHCO3aq=+8.11t  dAir_gas=+60.56t  dAir_liq=+6.99t  outlet_left=+242.79t
+    mas carbon-balance mineral           = +3.8104e+03 mol  (+0.17 t CO2)
+    mas d(aqueous cations): Ca=+4.800e+02  Mg=-1.172e+04  Fe=-5.812e+01 mol
+    >> HDF5 / mas-balance ratio = 74.2x  (should be ~1 if consistent)
+
+  If HDF5 net carbonate carbon >> mas carbon-balance mineral, the HDF5 carbonate
+  volumes are not carbon-consistent (e.g. VF magnitude/units), and the mineralization
+  numbers must not be used until reconciled. The aqueous cation change is an
+  independent witness: net carbonate cation uptake should track Ca+Mg+Fe consumed.
+
+==========================================================================
+  SUMMARY — convergent evidence for transport limitation
+==========================================================================
+   03 Da-Pe     : see per-suite max/min above (flat over kappa AND over D/D0)
+   04 mechanisms: carbonation tracks CO2 phase split (Case C); buoyancy (Case D) above
+==========================================================================
+==========================================================================
+  TRANSPORT-LIMITATION EVIDENCE  (studies 03/04/05/07)
+  root: /scratch/pawsey1284/ychen6/WAG
+==========================================================================
+
+==============================================================================
+  CATION CLOSURE CHECK — is the HDF5 carbonate cation-supported or spurious?
+  Mg/Ca conservation: Σ(Δmineral_mol × cations/formula) + Δaqueous_cation ≈ 0
+==============================================================================
+
+  scenario          Mg_carb    Mg_sil   ΔMg_aq  Mg_resid |   Ca_carb   Ca_sil  Ca_resid
+  --------------------------------------------------------------------------------------------
+  Dissolved (S1)   5.17e+05  5.70e+05 -2.4e+04  7.71e+04 |  4.99e+04-1.08e+04 -5.91e+04
+  scCO2 (S2)       4.92e+04  8.73e+04 -4.3e+03  4.24e+04 |  4.92e+04-4.47e+03 -5.63e+04
+  WAG-6mo (S3)     2.82e+05  3.27e+05 -1.3e+04  5.81e+04 |  4.94e+04-6.73e+03 -5.58e+04
+  WAG-3mo (S4)     2.82e+05  3.27e+05 -1.3e+04  5.81e+04 |  4.94e+04-6.75e+03 -5.57e+04
+  SWAG (S5)        2.82e+05  3.27e+05 -1.3e+04  5.82e+04 |  4.93e+04-6.79e+03 -5.57e+04
+  Adaptive (S6)    2.33e+05  2.76e+05 -1.2e+04  5.51e+04 |  4.98e+04-6.18e+03 -5.64e+04
+  control (q0)     4.71e+04  8.38e+04  3.0e+01  3.67e+04 |  4.71e+04-3.11e+03 -5.02e+04
+
+  Mg_carb = Mg into carbonates; Mg_sil = Mg released by dissolving silicates;
+  ΔMg_aq = aqueous Mg change; Mg_resid = Mg_sil − Mg_carb − ΔMg_aq (≈0 if cation-closed).
+  If Mg_sil ≈ Mg_carb (resid ≈ 0): carbonate is cation-supported — PFLOTRAN's mineral
+  and aqueous CARBON books disagree (the mineral VF overstates net C uptake vs the
+  carbon mass balance). If Mg_sil ≪ Mg_carb (resid large negative): silicates cannot
+  supply the cations, so the HDF5 carbonate growth is spurious. Either way the mas
+  carbon balance is the carbon-consistent mineralization metric.
+
+==========================================================================
+  SUMMARY — convergent evidence for transport limitation
+==========================================================================
+   03 Da-Pe     : see per-suite max/min above (flat over kappa AND over D/D0)
+   04 mechanisms: carbonation tracks CO2 phase split (Case C); buoyancy (Case D) above
+==========================================================================
+==========================================================================
+  TRANSPORT-LIMITATION EVIDENCE  (studies 03/04/05/07)
+  root: /scratch/pawsey1284/ychen6/WAG
+==========================================================================
+
+================================================================================
+  HIGH-PRECISION CARBON AUDIT — decide (a) accounting leak vs (b) phantom mineral
+================================================================================
+
+  --- mas column inventory (look for any CO2 / CO3 / carbon column beyond HCO3-/Air) ---
+    [ 0] Time [yr]
+    [ 1] dt_flow [yr]
+    [ 2] dt_tran [yr]
+    [ 3] Global Water Mass in Liquid Phas [kg]
+    [ 4] Global Air Mass in Liquid Phase [kg]  <== carbon-bearing (global)
+    [ 5] Global Water Mass in Gas Phase [kg]
+    [ 6] Global Air Mass in Gas Phase [kg]  <== carbon-bearing (global)
+    [ 7] Global H+ [mol]
+    [ 8] Global Ca++ [mol]
+    [ 9] Global Mg++ [mol]
+    [10] Global Fe++ [mol]
+    [11] Global Na+ [mol]
+    [12] Global K+ [mol]
+    [13] Global Al+++ [mol]
+    [14] Global SiO2(aq) [mol]
+    [15] Global HCO3- [mol]  <== carbon-bearing (global)
+    [16] Global SO4-- [mol]
+    [17] Global Cl- [mol]
+    [18] Global O2(aq) [mol]
+    [19] outlet_side Water Mass [kg]
+    [20] outlet_side Air Mass [kg]
+    [21] outlet_side Water Mass [kg/yr]
+    [22] outlet_side Air Mass [kg/yr]
+    [23] outlet_side H+ [mol]
+    [24] outlet_side Ca++ [mol]
+    [25] outlet_side Mg++ [mol]
+    [26] outlet_side Fe++ [mol]
+    [27] outlet_side Na+ [mol]
+    [28] outlet_side K+ [mol]
+    [29] outlet_side Al+++ [mol]
+    [30] outlet_side SiO2(aq) [mol]
+    [31] outlet_side HCO3- [mol]
+    [32] outlet_side SO4-- [mol]
+    [33] outlet_side Cl- [mol]
+    [34] outlet_side O2(aq) [mol]
+    [35] outlet_side H+ [mol/yr]
+    [36] outlet_side Ca++ [mol/yr]
+    [37] outlet_side Mg++ [mol/yr]
+    [38] outlet_side Fe++ [mol/yr]
+    [39] outlet_side Na+ [mol/yr]
+    [40] outlet_side K+ [mol/yr]
+    [41] outlet_side Al+++ [mol/yr]
+    [42] outlet_side SiO2(aq) [mol/yr]
+    [43] outlet_side HCO3- [mol/yr]
+    [44] outlet_side SO4-- [mol/yr]
+    [45] outlet_side Cl- [mol/yr]
+    [46] outlet_side O2(aq) [mol/yr]
+    [47] well Water Mass [kg]
+    [48] well Air Mass [kg]
+    [49] well Water Mass [kg/yr]
+    [50] well Air Mass [kg/yr]
+    [51] well H+ [mol]
+    [52] well Ca++ [mol]
+    [53] well Mg++ [mol]
+    [54] well Fe++ [mol]
+    [55] well Na+ [mol]
+    [56] well K+ [mol]
+    [57] well Al+++ [mol]
+    [58] well SiO2(aq) [mol]
+    [59] well HCO3- [mol]
+    [60] well SO4-- [mol]
+    [61] well Cl- [mol]
+    [62] well O2(aq) [mol]
+    [63] well H+ [mol/yr]
+    [64] well Ca++ [mol/yr]
+    [65] well Mg++ [mol/yr]
+    [66] well Fe++ [mol/yr]
+    [67] well Na+ [mol/yr]
+    [68] well K+ [mol/yr]
+    [69] well Al+++ [mol/yr]
+    [70] well SiO2(aq) [mol/yr]
+    [71] well HCO3- [mol/yr]
+    [72] well SO4-- [mol/yr]
+    [73] well Cl- [mol/yr]
+    [74] well O2(aq) [mol/yr]
+
+  === control q0 (NO injection) ===
+    HCO3- [mol C]            t0=    9.490816e+04  tf=    9.494282e+04  Δ=  3.466510e+01 mol  (+0.002 t)
+    Air_gas [molC via kg]    t0=    0.000000e+00  tf=    0.000000e+00  Δ=  0.000000e+00 mol  (+0.000 t)
+    Air_liq [molC via kg]    t0=    1.641452e+01  tf=    1.641478e+01  Δ=  2.627357e-04 mol  (+0.000 t)
+    TOTAL tracked C          t0=    9.492457e+04  tf=    9.495924e+04  Δ=  3.466536e+01 mol  (+0.002 t)
+    injected (well)         =    -0.000000e+00 mol  (-0.000 t)
+    net carbon advected out =    -5.649531e+00 mol  (-0.000 t)
+    HDF5 mineral C          : t0=  0.000000e+00  tf=  9.449036e+04  Δ=9.449036e+04 mol  (+4.159 t)
+    BALANCE tracked-only : Δtracked − (inj − out) = +0.0013 t   (≈0 ⇒ mobile C conserved by itself)
+    BALANCE +HDF5 mineral: (Δtracked+Δmin) − (inj − out) = +4.1598 t   (≈0 ⇒ minerals real & carbon-consistent)
+
+  === Dissolved (S1) ===
+    HCO3- [mol C]            t0=    9.888204e+04  tf=    5.677688e+05  Δ=  4.688867e+05 mol  (+20.636 t)
+    Air_gas [molC via kg]    t0=    0.000000e+00  tf=    0.000000e+00  Δ=  0.000000e+00 mol  (+0.000 t)
+    Air_liq [molC via kg]    t0=    1.637525e+01  tf=    1.123547e+01  Δ= -5.139787e+00 mol  (-0.000 t)
+    TOTAL tracked C          t0=    9.889841e+04  tf=    5.677800e+05  Δ=  4.688816e+05 mol  (+20.635 t)
+    injected (well)         =     4.730400e+05 mol  (+20.818 t)
+    net carbon advected out =     3.627726e+02 mol  (+0.016 t)
+    HDF5 mineral C          : t0=  0.000000e+00  tf=  5.672486e+05  Δ=5.672486e+05 mol  (+24.965 t)
+    BALANCE tracked-only : Δtracked − (inj − out) = -0.1670 t   (≈0 ⇒ mobile C conserved by itself)
+    BALANCE +HDF5 mineral: (Δtracked+Δmin) − (inj − out) = +24.7976 t   (≈0 ⇒ minerals real & carbon-consistent)
+
+  === scCO2 (S2) ===
+    HCO3- [mol C]            t0=    9.490630e+04  tf=    9.925418e+04  Δ=  4.347879e+03 mol  (+0.191 t)
+    Air_gas [molC via kg]    t0=    8.812050e+04  tf=    2.373735e+06  Δ=  2.285614e+06 mol  (+100.590 t)
+    Air_liq [molC via kg]    t0=    8.785453e+03  tf=    1.069060e+05  Δ=  9.812053e+04 mol  (+4.318 t)
+    TOTAL tracked C          t0=    1.918123e+05  tf=    2.579895e+06  Δ=  2.388083e+06 mol  (+105.100 t)
+    injected (well)         =     1.135645e+07 mol  (+499.797 t)
+    net carbon advected out =     8.871505e+06 mol  (+390.435 t)
+    HDF5 mineral C          : t0=  0.000000e+00  tf=  9.880914e+04  Δ=9.880914e+04 mol  (+4.349 t)
+    BALANCE tracked-only : Δtracked − (inj − out) = -4.2628 t   (≈0 ⇒ mobile C conserved by itself)
+    BALANCE +HDF5 mineral: (Δtracked+Δmin) − (inj − out) = +0.0858 t   (≈0 ⇒ minerals real & carbon-consistent)
+
+  DECISION RULE (control, inj=out=0):
+   • Δtracked ≈ 0 AND Δmineral large  ⇒ BALANCE+mineral ≠ 0 ⇒ (b) mineral field is PHANTOM;
+     mobile carbon is conserved on its own, the mineral carbon is created from nothing.
+   • Δtracked ≈ −Δmineral (DIC really drops)  ⇒ BALANCE+mineral ≈ 0 ⇒ (a) minerals are REAL and
+     the earlier 'mineral-by-difference' was wrong; trust the mineral volumes, not the residual.
+
+==========================================================================
+  SUMMARY — convergent evidence for transport limitation
+==========================================================================
+   03 Da-Pe     : see per-suite max/min above (flat over kappa AND over D/D0)
+   04 mechanisms: carbonation tracks CO2 phase split (Case C); buoyancy (Case D) above
+==========================================================================
+==========================================================================
+  TRANSPORT-LIMITATION EVIDENCE  (studies 03/04/05/07)
+  root: /scratch/pawsey1284/ychen6/WAG
+==========================================================================
+
+========================================================================
+  MOLAR CARBON BUDGET — no-injection control (da_q0_k1)
+  all quantities in mol C (no mass conversion)
+========================================================================
+
+  reservoir                              t=0         t=100yr       Δ mol C
+  aqueous DIC (HCO3- comp)          94908.16        94942.82         34.67
+  dissolved CO2 (Air liq)              16.41           16.41          0.00
+  free gas CO2 (Air gas)                0.00            0.00          0.00
+  carbonate mineral C                   0.00        94490.36      94490.36
+  TOTAL domain C                    94924.57       189449.60      94525.03
+
+  fluxes (mol C):   injected(well) =        -0.00   net boundary in =         5.65
+
+  carbon supplied to domain  =           5.65 mol C
+  carbon accumulated (Δtotal)=       94525.03 mol C
+  IMBALANCE (created)        =       94519.38 mol C
+
+  key comparison: carbonate C gained = +94490.36 mol   vs   mobile C change = +34.67 mol
+  (real precipitation needs mobile C change ≈ −94490 mol; observed +35 mol)
+
+==========================================================================
+  SUMMARY — convergent evidence for transport limitation
+==========================================================================
+   03 Da-Pe     : see per-suite max/min above (flat over kappa AND over D/D0)
+   04 mechanisms: carbonation tracks CO2 phase split (Case C); buoyancy (Case D) above
+==========================================================================
