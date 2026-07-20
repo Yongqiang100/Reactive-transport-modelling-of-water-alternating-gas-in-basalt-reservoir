@@ -23,7 +23,7 @@ generators (*.py)  ──►  input decks (decks/*.in)
               manuscript figures (figures/*.pdf,*.png)  +  diagnostic tables
 ```
 
-- **153 input decks** across **11 campaigns**; **104 simulations** define the
+- **153 input decks** across **11 sets**; **104 simulations** define the
   seven core studies of the paper, with a further set of supporting/diagnostic
   runs.
 - **9 manuscript figures**, produced by a single entry point
@@ -95,10 +95,10 @@ generate_all_figures.py     ONE entry point -> all 9 manuscript figures
 make_manuscript_figures.py  figure/reader library (imported by the above)
 analyse_transport_limitation.py  kinetic-crossover analysis + readers
 
-NN_*/                       one campaign each:
-   generate_*.py  (or make_*.py)   builds this campaign's decks/*.in
+NN_*/                       one set each:
+   generate_*.py  (or make_*.py)   builds this set's decks/*.in
    decks/*.in                       the committed input decks
-   analyse_*.py                     campaign-specific post-processing
+   analyse_*.py                     set-specific post-processing
    runs/<label>/                    created at run time (excluded from the repo)
 
 # diagnostic / analysis scripts (top level)
@@ -113,7 +113,7 @@ README.md  BUILD_AND_RUN.md  REPRODUCE.md  PUBLICATION_CHECKLIST.md
 ```
 
 The shared deck builder lives in `03_dape/generate_dape_decks.py`
-(`build_deck`); the other campaign generators import it, so decks must be
+(`build_deck`); the other set generators import it, so decks must be
 generated within the full tree layout (the drivers and `verify_decks.sh` handle
 this automatically).
 
@@ -123,7 +123,7 @@ this automatically).
 
 ### 5.1 The study map (104 core simulations)
 
-| Campaign | Sims | What it varies | Role in the paper |
+| Set | Sims | What it varies | Role in the paper |
 |---|---:|---|---|
 | `01_baseline` | 6 | Six fluid-delivery schemes (S1 dissolved, S2 scCO₂, S3 WAG-6mo, S4 WAG-3mo, S5 SWAG, S6 adaptive) at the baseline rate | Baseline comparison; phase-partitioning result |
 | `03_dape` | 18 | Kinetic-rate κ (×5) and molecular diffusion D (×4), each × {dissolved, scCO₂} | Separates Damköhler from Péclet |
@@ -174,7 +174,7 @@ python3 generate_all_figures.py          # run from the repo root -> ./figures/
 | `fig_damkohler_sweep`      | `make_manuscript_figures.fig_da_sweep`        | `08_rate_sweep` |
 | `fig_da_sigma_regime`      | inline in `generate_all_figures.py`           | `08_rate_sweep` |
 
-Set `WAG_ROOT` if the runs live in a different tree. Campaign-specific tables and
+Set `WAG_ROOT` if the runs live in a different tree. Set-specific tables and
 diagnostics come from each study's own post-processor, e.g.
 `( cd 08_rate_sweep && python3 analyse_rate_sweep.py )`.
 
@@ -182,19 +182,19 @@ diagnostics come from each study's own post-processor, e.g.
 
 ## 6. Reproducing the diagnostic & supporting results
 
-These campaigns and scripts support the paper's claims and are the internal
+These sets and scripts support the paper's claims and are the internal
 checks referenced in the text / supporting information. Run any one after its
 simulations complete.
 
-### 6.1 Supporting simulation campaigns
+### 6.1 Supporting simulation sets
 
-| Campaign | Sims | Purpose | Post-processor |
+| Set | Sims | Purpose | Post-processor |
 |---|---:|---|---|
 | `09_scco2_kappa_controls` | 10 | scCO₂ kinetic controls (`sk_ctrl_*`, `sk_inj_*`) — confirms the κ result under control conditions | `analyse_transport_limitation.analyse_09` |
 | `11_kappa_mu30` | 28 | The κ sweep repeated at 30× injection rate — kinetic insensitivity persists off-baseline | `11_kappa_mu30/kappa_mu30_analysis.py` |
 | `12_boundary_tests` | 6 | Open-top and tall-caprock boundary variants (`open_top_*`, `tallcap_*`) × {dissolved, scCO₂, WAG-6mo} — boundary-condition insensitivity | `12_boundary_tests/compare_boundary.py` |
 
-Run a single supporting campaign as its own array (six decks → `--array=0-5`):
+Run a single supporting set as its own array (six decks → `--array=0-5`):
 
 ```bash
 sbatch --job-name=wag_12_boundary_tests --array=0-5 --ntasks=16 --time=01:30:00 \
@@ -233,7 +233,7 @@ done
 
 `batch_carbon_budget.py` sums **all four carbon reservoirs** — aqueous DIC,
 dissolved CO₂ (liquid "Air" component), free CO₂ gas, and mineral carbonate —
-and prints a closed-system sanity block (conservative Cl⁻ tracer, cation
+and prints a closed-system consistency check (conservative Cl⁻ tracer, cation
 movement, silicate dissolution). The control variants (`batch_cell_nocarb`,
 `v1`, `v2`, `v3`) isolate how carbon is partitioned among the gas, aqueous, and
 reactive representations in a GENERAL + GIRT setup; the total carbon should be
@@ -251,12 +251,12 @@ Run against completed `runs/` (no re-simulation needed):
 - `extract_two_timepoints.py` — pulls fields at chosen times for spatial comparisons.
 - `compare_to_paper.py` — cross-checks computed quantities against the reported values.
 
-Each takes a run directory or campaign as its argument; run with `-h` or read the
+Each takes a run directory or set as its argument; run with `-h` or read the
 header docstring for usage.
 
 ---
 
-## 7. Running one campaign or one deck
+## 7. Running one set or one deck
 
 Generate decks only, then run a single deck manually (no Slurm):
 
@@ -267,7 +267,7 @@ mpirun -n 8 $PFLOTRAN_EXE -input_prefix run
 ```
 
 Each array task (via `run_study_setonix.sh`) runs one deck in
-`<campaign>/runs/<label>/`, symlinks the database, and executes
+`<set>/runs/<label>/`, symlinks the database, and executes
 `srun -N 1 -n <ranks> $PFLOTRAN_EXE -input_prefix run`.
 
 ---
@@ -314,7 +314,7 @@ reproduce — and passes only if both hold. `scan_seed.sh` should report
 
 ## 10. Runtime & resources
 
-104 core simulations plus the supporting campaigns. On 16 MPI ranks most studies
+104 core simulations plus the supporting sets. On 16 MPI ranks most studies
 complete in ≲1.5 h each; `08_rate_sweep` benefits from 32 ranks and a multi-hour
 walltime. Budget a few GB of disk per scenario for HDF5 snapshots. Deck
 generation and figure production are seconds-to-minutes on a login node.
