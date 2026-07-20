@@ -335,8 +335,6 @@ If you use this code or data, please cite both the paper and the Zenodo archive:
 > Govern CO₂ Mineralization in Basaltic Reservoirs"* [Data set]. Zenodo.
 > https://doi.org/10.5281/zenodo.21390676
 
-See `CITATION.cff` for machine-readable metadata.
-
 ---
 
 ## 12. License
