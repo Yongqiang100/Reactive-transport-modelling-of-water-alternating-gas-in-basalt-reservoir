@@ -1,6 +1,6 @@
 # Transport and Gas-Water Phase Partitioning Govern CO₂ Mineralization in Basaltic Reservoirs
 
-Reproducibility package — reactive-transport simulations (PFLOTRAN) and analysis behind the above manuscript, submitted to *JGR: Solid Earth*.
+Reproducibility package — reactive-transport simulations (PFLOTRAN) and analysis for the manuscript *Transport and Gas-Water Phase Partitioning Govern CO₂ Mineralization in Basaltic Reservoirs* submitted to *JGR: Solid Earth*.
 
 This repository contains everything needed to regenerate every input deck, run
 every simulation, and reproduce every figure in the article, as well as the full
@@ -30,7 +30,7 @@ generators (*.py)  ──►  input decks (decks/*.in)
   (`generate_all_figures.py`).
 - **Diagnostic results**: grid convergence, single-Damköhler collapse,
   boundary-condition sensitivity, kinetic controls at high rate, and
-  single-cell carbon-conservation audits.
+  single-cell carbon-conservation checks.
 
 > **Reproducibility note — carbonate seeding.** All decks use the corrected
 > **zero-seed** initial condition (`seed_carb_vf = 0.0d0`): the secondary
@@ -51,7 +51,7 @@ Prepared once; see `BUILD_AND_RUN.md` for step-by-step build instructions.
   from source (https://www.pflotran.org, https://petsc.org). Build the **same
   version** used here (v6); a different build can shift the numbers.
 - **`hanford.dat`** — thermodynamic database read by every deck
-  (`DATABASE hanford.dat`). Use the copy shipped with PFLOTRAN
+  (`DATABASE hanford.dat`). Use the copy distributed with PFLOTRAN
   (`.../pflotran/database/hanford.dat`) if unmodified, or the copy archived on
   Zenodo if it was customised. Point `HANFORD_DB` at it.
 - **Python (conda)** — for writing decks and making figures only, not for
@@ -154,7 +154,7 @@ ARRAY_THROTTLE=8  ./run_all_setonix.sh   # cap concurrent tasks per study
 ```
 
 Monitor with `squeue -u $USER`. **Re-running is safe**: a task whose log already
-contains `Wall Clock Time` is skipped, so if some jobs time out just resubmit.
+contains `Wall Clock Time` is skipped, so if some jobs time out, resubmit.
 
 ### 5.3 Generate the figures
 
@@ -202,11 +202,11 @@ sbatch --job-name=wag_12_boundary_tests --array=0-5 --ntasks=16 --time=01:30:00 
   run_study_setonix.sh
 ```
 
-### 6.2 Carbon-conservation batch audits (`10_batch_conservation`)
+### 6.2 Carbon-conservation batch checks (`10_batch_conservation`)
 
 A **1 m³ closed reactor** with the identical chemistry / database / brine /
 minerals as the full runs — no wells, no boundary flux, no injection — used to
-audit carbon accounting in the geochemical step in isolation from flow and
+verify carbon accounting in the geochemical step in isolation from flow and
 transport. Five decks:
 
 | Deck | Configuration |
@@ -316,7 +316,7 @@ reproduce — and passes only if both hold. `scan_seed.sh` should report
 
 104 core simulations plus the supporting sets. On 16 MPI ranks most studies
 complete in ≲1.5 h each; `08_rate_sweep` benefits from 32 ranks and a multi-hour
-walltime. Budget a few GB of disk per scenario for HDF5 snapshots. Deck
+walltime. Budget several GB of disk per scenario for HDF5 snapshots. Deck
 generation and figure production are seconds-to-minutes on a login node.
 
 ---
