@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite both the paper and the Zenodo archive below."
+title: "Transport and Gas-Water Phase Partitioning Govern CO2 Mineralization in Basaltic Reservoirs (reproducibility package)"
+abstract: "Input decks, run drivers, and analysis/figure code for the PFLOTRAN reactive-transport study of CO2 mineral carbonation in basaltic reservoirs. Reproduces every input deck, simulation, and figure in the associated paper."
+type: software
+version: "1.0.0"
+date-released: "2026-07-20"
+license: MIT
+repository-code: "https://github.com/Yongqiang100/Reactive-transport-modelling-of-water-alternating-gas-in-basalt-reservoir"
+authors:
+  - family-names: Chen
+    given-names: Yongqiang
+    affiliation: "Curtin University"
+    email: yongqiang.chen@curtin.edu.au
+  - family-names: Xie
+    given-names: Quan
+    affiliation: "Curtin University"
+  - family-names: Cao
+    given-names: Xiaomin
+    affiliation: "Curtin University"
+  - family-names: Kang
+    given-names: Qinjun
+    affiliation: "Los Alamos National Laboratory"
+  - family-names: Regenauer-Lieb
+    given-names: Klaus
+    affiliation: "Curtin University"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21390676
+    description: "Zenodo archive (code and simulation outputs)"
+keywords:
+  - CO2 mineralization
+  - basalt carbonation
+  - reactive transport
+  - PFLOTRAN
+  - water-alternating-gas
+  - multiphase flow
+  - geological CO2 storage
+preferred-citation:
+  type: article
+  title: "Transport and Gas-Water Phase Partitioning Govern CO2 Mineralization in Basaltic Reservoirs"
+  authors:
+    - family-names: Chen
+      given-names: Yongqiang
+    - family-names: Xie
+      given-names: Quan
+    - family-names: Cao
+      given-names: Xiaomin
+    - family-names: Kang
+      given-names: Qinjun
+    - family-names: Regenauer-Lieb
+      given-names: Klaus
+  journal: "Journal of Geophysical Research: Solid Earth"
+  year: 2026
+  notes: "In review; DOI to be added on acceptance."

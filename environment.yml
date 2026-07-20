@@ -1,0 +1,14 @@
+# Conda environment for generating PFLOTRAN input decks and producing the
+# manuscript figures. Not required at solve time (PFLOTRAN runs independently).
+#   conda env create -f environment.yml
+#   conda activate co2conv
+name: co2conv
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - numpy
+  - scipy
+  - matplotlib
+  - h5py
+  - pandas
