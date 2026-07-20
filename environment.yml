@@ -1,24 +1,14 @@
-name: geochem
-# =====================================================================
-# Python environment for the deck generators and post-processing /
-# figure scripts in this reproduction package.
-#
-# NOTE: This environment is NOT needed to run PFLOTRAN itself. PFLOTRAN
-# is a compiled MPI application provided on the cluster via
-#     module load pflotran/6.0
-# This environment only covers the Python tooling that (a) writes the
-# input decks and (b) reads the HDF5/observation output and makes figures.
-#
-# Create with:
-#     conda env create -f environment.yml
-#     conda activate geochem
-# =====================================================================
+# Conda environment for generating PFLOTRAN input decks and producing the
+# manuscript figures. Not required at solve time (PFLOTRAN runs independently).
+#   conda env create -f environment.yml
+#   conda activate co2conv
+name: co2conv
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python>=3.9
   - numpy
   - scipy
   - matplotlib
-  - h5py            # reads PFLOTRAN HDF5 output
-  - pandas          # tabular handling of *-mas.dat mass-balance files
+  - h5py
+  - pandas

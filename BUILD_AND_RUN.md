@@ -105,23 +105,6 @@ post-processor, e.g. `( cd 08_rate_sweep && python3 analyse_rate_sweep.py )`.
 
 ---
 
-## Step 5 — (optional) verify the package
-
-The generators are the authoritative baseline: these checks only read and run
-them — they never regenerate, edit, or overwrite any generator or script. Keep
-both scripts next to `compare_code.py`:
-
-```bash
-bash verify_decks.sh .                                        # [1] generators/source unchanged  [2] decks reproduce
-bash verify_package.sh <downloaded-archive>.zip .            # (optional) a downloaded Zenodo/release archive matches + reproduces this tree
-```
-
-`verify_decks.sh` prints two verdicts — that the generator/driver/analysis
-source is byte-for-byte unchanged after running, and that the committed decks
-are exactly what the generators produce — and passes only if both hold.
-
----
-
 ## Runtime and resources
 
 104 simulations across seven core studies (`01_baseline`, `03_dape`,
