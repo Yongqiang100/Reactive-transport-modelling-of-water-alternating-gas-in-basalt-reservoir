@@ -105,7 +105,7 @@ cation_balance.py  gas_buoyancy.py  nearwell_precip.py  selfseal_check.py
 extract_two_timepoints.py  compare_to_paper.py
 
 # documentation
-README.md  BUILD_AND_RUN.md  REPRODUCE.md  PUBLICATION_CHECKLIST.md
+README.md  BUILD_AND_RUN.md  REPRODUCE.md
 ```
 
 The shared deck builder lives in `03_dape/generate_dape_decks.py`
